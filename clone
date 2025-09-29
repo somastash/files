@@ -5,7 +5,9 @@ if [ -e "$dst" ]; then
 	echo "//// ERROR //// The destination: $dst already exists."
 	exit 1
 fi
-xcode-select --install
+
+command -v "git" &> /dev/null || xcode-select --install
+
 if ! git clone "$src" "$dst"; then
 	echo "//// ERROR //// git-clone failed."
 	exit 1
