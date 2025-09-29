@@ -1,4 +1,10 @@
 #!/bin/bash
+
+if [ -z "$1" ]; then
+	echo "//// ERROR //// Enter the repository name."
+	exit 1
+fi
+
 src="https://github.com/somastash/${1}"
 dst="$HOME/Desktop/${1}_$(date +%Y)"
 if [ -e "$dst" ]; then
