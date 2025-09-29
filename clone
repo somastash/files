@@ -8,14 +8,16 @@ fi
 
 command -v "git" &> /dev/null || xcode-select --install
 
-if ! git clone "$src" "$dst"; then
+if ! git clone --recurse-submodules "$src" "$dst"; then
 	echo "//// ERROR //// git-clone failed."
 	exit 1
 fi
+
 if [ ! -d "$dst" ]; then
 	echo "//// ERROR //// $dst is not found after git-clone. There must be something wrong here..."
 	exit 1
 fi
+
 echo
 echo "---- SUCCESS ----"
 echo "src: $src"
