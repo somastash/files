@@ -1,6 +1,11 @@
 code=$(cat <<- 'EOF'
+# Node.js
 export NPM_PREFIX="$HOME/.npm-global"
 PATH="$PATH:./node_modules/.bin:$NPM_PREFIX/bin"
+
+# VSCode
+PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
 EOF
 )
 echo "$code" > "$HOME/.bash_profile"
