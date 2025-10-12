@@ -1,0 +1,12 @@
+code=$(cat <<- 'EOF'
+export NPM_PREFIX="$HOME/.npm-global"
+PATH="$PATH:./node_modules/.bin:$NPM_PREFIX/bin"
+EOF
+)
+echo "$code" > $HOME/.bash_profile
+echo "$code" > $HOME/.zprofile
+
+[ -d "$HOME/.npm-global" ] || mkdir "$HOME/.npm-global"
+
+echo "Done."
+
