@@ -12,3 +12,9 @@ bash <(curl -s https://raw.githubusercontent.com/somastash/files/refs/heads/main
 bash <(curl -s https://raw.githubusercontent.com/somastash/files/refs/heads/main/env)
 ```
 
+## `encode.js`
+
+```sh
+cd プロジェクトルート
+curl -LO https://raw.githubusercontent.com/somastash/files/refs/heads/main/encode.js
+```
