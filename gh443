@@ -4,9 +4,12 @@ dir="$HOME/.ssh"
 file="${dir}/config"
 
 [ -d "$dir" ] || mkdir -m 700 "$dir"
-[ -f "$file" ] || touch "$file" && chmod 600 "$file"
+[ -f "$file" ] || {
+	touch "$file"
+	chmod 600 "$file"
+}
 
-grep -q "^Host github\.com" "$file" && exit 0
+grep -qi "^host github\.com" "$file" && exit 0
 
 cat << EOF >> "$file"
 Host github.com
