@@ -1,0 +1,18 @@
+#!/bin/bash
+
+dir="$HOME/.ssh"
+file="${dir}/config"
+
+[ -d "$dir" ] || mkdir -m 700 "$dir"
+[ -f "$file" ] || touch "$file" && chmod 600 "$file"
+
+grep -q "^Host github\.com" "$file" && exit 0
+
+cat << EOF >> "$file"
+Host github.com
+    Hostname ssh.github.com
+    Port 443
+    User git
+
+EOF
+
